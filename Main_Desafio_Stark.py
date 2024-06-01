@@ -6,18 +6,39 @@ while seguir == True:
     
     match menu():
         case "1":
-            #mostrar_nombre(lista_personajes)
-            pass
+            print("        || Nombre de Superhéroes ||")
+            mostrar_nombres(lista_personajes)
+
         case "2":
-            pass
+            print("   || Superhéroes ||           || Alturas ||\n")
+            concatenar_nombre_altura(lista_personajes)
+            
         case "3":
-            pass
+            print("|| Superhéroe más alto ||")
+            print(buscar_heroe_mayor_valor(lista_personajes,"altura"))
         case "4":
-            pass
+            print("|| Superhéroe más bajo ||")
+            print(buscar_heroe_menor_valor(lista_personajes,"altura"))
+            
         case "5":
-            pass
+            promedio = calcular_promedio(lista_personajes,"altura")
+            print(f"La altura promedio es: {promedio:.2f}")
+            
         case "6":
-            pass
+            print("| Superhéroe más y menos pesado |\n\n || Nombre ||     || Peso ||\n")
+            mayorPeso = buscar_maximo(lista_personajes,"peso")
+            menorPeso = buscar_minimo(lista_personajes,"peso")
+            heroeMayorPeso = buscar_heroe_mayor_valor(lista_personajes,"peso")
+            heroeMenorPeso = buscar_heroe_menor_valor(lista_personajes,"peso")
+            
+            print(f"»{heroeMayorPeso:>9}{mayorPeso:>15}\n»{heroeMenorPeso:>9}{menorPeso:>15}")
+            
+            
         case "7":
-            pass
+            respuesta = input("Desea salir? ").lower()
+            if respuesta == "s":
+                seguir = "n"
+                continue
     pausar()
+
+print("\n|| Programa Finalizado ||")
