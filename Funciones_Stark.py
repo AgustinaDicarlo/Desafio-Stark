@@ -30,7 +30,6 @@ def menu():
     print(" ")
     return opcion
 
-#############################################################################################################
 
 
 def buscar_heroe_mayor_valor(lista:list,clave:str)->str:
@@ -69,7 +68,6 @@ def buscar_heroe_menor_valor(lista:list,clave:str)->str:
             heroMenorValor = nombre
             return heroMenorValor
         
-
 def concatenar_nombre_altura(lista:list):
     """Muestra la lista con el nombre y altura de los heroes
 
@@ -81,7 +79,6 @@ def concatenar_nombre_altura(lista:list):
         altura = float(heroe["altura"])
         print(f"» {nombre:>18}{altura:>20}")
 
-
 def mostrar_altura(lista:list):
     """Recorre y muestra el listado de alturas de superheroes
 
@@ -92,7 +89,6 @@ def mostrar_altura(lista:list):
         alturaHeroe = float(heroe['altura'])
         mostrar(alturaHeroe)
 
-
 def mostrar_nombres(lista:list):
     """Recorre y muestra el listado de nombres de superhéroes
 
@@ -102,7 +98,6 @@ def mostrar_nombres(lista:list):
     for heroe in lista:
         nombreHeroe = heroe['nombre']
         mostrar(nombreHeroe)
-
 
 def mostrar(variable)->str:
     """Muestra por consola un dato con decoración
@@ -174,7 +169,6 @@ def calcular_promedio(lista:list,clave)->float:
     promedio = value / contador
     return promedio
 
-##############################################################################################
 
 
 ########################################### VALIDACIONES ######################################
@@ -198,5 +192,3 @@ def validar_entero(validar,texto)->int:
             print("Eso no es un número positivo\n")
 
     return validar
-
-##############################################################################################

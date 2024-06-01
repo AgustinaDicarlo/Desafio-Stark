@@ -16,6 +16,7 @@ while seguir == True:
         case "3":
             print("|| Superhéroe más alto ||")
             print(buscar_heroe_mayor_valor(lista_personajes,"altura"))
+            
         case "4":
             print("|| Superhéroe más bajo ||")
             print(buscar_heroe_menor_valor(lista_personajes,"altura"))
