@@ -1,9 +1,12 @@
 from data_stark import *
+import os
+
+
 
 
 
 """ A. Analizar detenidamente el set de datos
-B. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe
+
 C. Recorrer la lista imprimiendo por consola nombre de cada superhéroe junto a
 la altura del mismo
 D. Recorrer la lista y determinar cuál es el superhéroe más alto (MÁXIMO)
@@ -18,6 +21,29 @@ informados.
 J. Construir un menú que permita elegir qué dato obtener """
 
 
+def limpiar_pantalla():
+    os.system("cls")
+
+def pausar():
+    os.system("pause")
+
+
+def menu():
+    limpiar_pantalla()
+    print("             Stark Industries")
+    print("--------------------------------------------")
+    print("1) Mostrar el nombre de los Superhéroes")
+    print("2) Mostrar Superhéroes con su altura")
+    print("3) Mostrar Superhéroe más alto")
+    print("4) Mostrar Superhéroe más bajo")
+    print("5) Mostrar altura promedio")
+    print("6) Mostrar Superhéroe más pesado y cuál es el menos pesado")
+    print("7) Salir")
+    opcion = input("Elija una opción » ")
+    return opcion
+
+
+
 
 def mostrar_nombre(lista:list):
     for heroe in lista:
@@ -25,6 +51,7 @@ def mostrar_nombre(lista:list):
         print(f"Nombre: {nombreHeroe}")
 
 
-mostrar_nombre(lista_personajes)
-
-
+def mostrar_peso(lista:list):
+    for heroe in lista:
+        alturaHeroe = float(heroe['altura'])
+        print(f"Altura: {alturaHeroe}")
