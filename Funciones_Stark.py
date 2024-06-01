@@ -5,9 +5,12 @@ import os
 ################################################## MENÚ #####################################################
 
 def limpiar_pantalla():
+    """Limpia la pantalla al volver al menú
+    """
     os.system("cls")
 
 def pausar():
+
     os.system("pause")
 
 def menu():
@@ -30,8 +33,16 @@ def menu():
 #############################################################################################################
 
 
+def buscar_heroe_mayor_valor(lista:list,clave:str)->str:
+    """Busca el nombre que tiene el mayor valor de la clave
 
-def buscar_heroe_mayor_valor(lista:list,clave:str):
+    Args:
+        lista (list): lista de donde se busca el nombre
+        clave (str): valor que se pide 
+
+    Returns:
+        str: Nombre con mayor valor
+    """
     mayorValue = buscar_maximo(lista,clave)
     for heroe in lista:
         target = float(heroe[clave])
@@ -40,7 +51,16 @@ def buscar_heroe_mayor_valor(lista:list,clave:str):
             heroMayorValor = nombre
             return heroMayorValor
 
-def buscar_heroe_menor_valor(lista:list,clave:str):
+def buscar_heroe_menor_valor(lista:list,clave:str)->str:
+    """Busca el nombre que tiene el menor valor de la clave
+
+    Args:
+        lista (list): lista de donde se busca el nombre
+        clave (str): valor que se pide 
+
+    Returns:
+        str: Nombre con menor valor
+    """
     menorValue = buscar_minimo(lista,clave)
     for heroe in lista:
         target = float(heroe[clave])
@@ -51,6 +71,11 @@ def buscar_heroe_menor_valor(lista:list,clave:str):
         
 
 def concatenar_nombre_altura(lista:list):
+    """Muestra la lista con el nombre y altura de los heroes
+
+    Args:
+        lista (list): Lista de donde se sacan los valores
+    """
     for heroe in lista:
         nombre = heroe["nombre"]
         altura = float(heroe["altura"])
@@ -79,7 +104,7 @@ def mostrar_nombres(lista:list):
         mostrar(nombreHeroe)
 
 
-def mostrar(variable):
+def mostrar(variable)->str:
     """Muestra por consola un dato con decoración
 
     Arg:
@@ -87,9 +112,10 @@ def mostrar(variable):
     """
     print(f"» {variable}")
 
+
 ######################################## CALCULOS ############################################
 
-def buscar_maximo(lista:list,clave):
+def buscar_maximo(lista:list,clave)->float:
     """Busca el máximo en la lista
 
     Args:
@@ -109,7 +135,7 @@ def buscar_maximo(lista:list,clave):
     
     return maximo
 
-def buscar_minimo(lista:list,clave):
+def buscar_minimo(lista:list,clave)->float:
     """Busca el mínimo en la lista
 
     Args:
@@ -129,7 +155,16 @@ def buscar_minimo(lista:list,clave):
     
     return minimo
 
-def calcular_promedio(lista:list,clave):
+def calcular_promedio(lista:list,clave)->float:
+    """Calcula el promedio
+
+    Args:
+        lista (list): lista de dónde se sacan los datos a calcular
+        clave (_type_): valor que se quiere calcular
+
+    Returns:
+        float: Devuelve el resultado del promedio
+    """
     contador = 0
     value = 0
     for target in lista:
@@ -144,7 +179,7 @@ def calcular_promedio(lista:list,clave):
 
 ########################################### VALIDACIONES ######################################
 
-def validar_entero(validar,texto):
+def validar_entero(validar,texto)->int:
     """Pide y valida el valor para que sea un entero
 
     Args:
