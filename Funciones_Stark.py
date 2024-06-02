@@ -20,18 +20,108 @@ def menu():
     print("             Stark Industries")
     print("--------------------------------------------")
     print("1) Mostrar el nombre de los Superhéroes")
-    print("2) Mostrar nombre y altura de los Superhéroes")
-    print("3) Mostrar Superhéroe más alto")
-    print("4) Mostrar Superhéroe más bajo")
-    print("5) Mostrar altura promedio")
-    print("6) Mostrar Superhéroe más pesado y cuál es el menos pesado")
-    print("7) Salir")
+    print("2) Mostrar el nombre de los Superhéroes Masculinos")
+    print("3) Mostrar el nombre de los Superhéroes Femeninos")
+    print("4) Mostrar nombre y altura de los Superhéroes")
+    print("5) Mostrar Superhéroe más alto")
+    print("6) Mostrar Superhéroe más bajo")
+    print("7) Mostrar altura promedio")
+    print("8) Mostrar Superhéroe más pesado y cuál es el menos pesado")
+    print("9) Salir")
     opcion = input("Elija una opción » ")
     print(" ")
     return opcion
 
 
+def calcular_promedio_genero(lista:list,genero:str,valor:str,dato:str):
+    """Calcula el promedio del valor del género elegido
 
+    Args:
+        lista (list): lista de donde se sacan los datos
+        genero (str): clave para entrar al diccionario de generos
+        valor (str): clave del valor que se quiere promediar
+        dato (str): M para masculino, F para femenino
+
+    Returns:
+        float: Devuelve el promedio
+    """
+    listaHeroesGenero = listar_heroe_genero(lista,genero,dato)
+    promedio = calcular_promedio(listaHeroesGenero,valor)
+    return promedio
+
+
+def calcular_menor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float:
+    """Calcula el menor valor dependiendo del género
+
+    Args:
+        lista (list): Lista de dónde se sacan los datos
+        genero (str): clave para entrar al diccionario de generos
+        valor (str): segundo valor para calcular el peso o la altura mayor
+        dato (str): M para masculino, F para femenino
+
+    Returns:
+        float: Devuelve un minimo
+    """
+    listaHeroesGenero = listar_heroe_genero(lista,genero,dato)
+    minimoValor = buscar_minimo(listaHeroesGenero,valor)
+    return minimoValor
+
+
+def calcular_mayor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float:
+    """Calcula el maximo valor dependiendo del género
+
+    Args:
+        lista (list): Lista de dónde se sacan los datos
+        genero (str): clave para entrar al diccionario de generos
+        valor (str): segundo valor para calcular el peso o la altura mayor
+        dato (str): M para masculino, F para femenino
+
+    Returns:
+        float: Devuelve un máximo
+    """
+    listaHeroesGenero = listar_heroe_genero(lista,genero,dato)
+    maximoValor = buscar_maximo(listaHeroesGenero,valor)
+    return maximoValor
+
+
+def mostrar_nombres_genero(lista:list,clave:str,dato:str):
+    """Muestra los nombres según el género asignado
+
+    Args:
+        lista (list): Lista de donde se buscan los nombres
+        clave (str): Key para acceder al diccionario necesario
+        dato (str): M para masculino, F para femenino
+    """
+    listaNombres = listar_heroe_genero(lista,clave,dato)
+    mostrar_nombres(listaNombres)
+
+
+def listar_heroe_genero(lista:list,clave:str,dato:str):
+    """Hace una lista con los nombres según el género que se pida
+
+    Args:
+        lista (list): Lista de dónde se sacan los nombres
+        clave (str): Clave para acceder al género
+        dato (str): M para buscar nombres masculinos y F para buscar nombres femeninos
+    """
+    listaHeroes = []
+    for heroe in lista:
+        genero = heroe[clave]
+        nombreAux = heroe["nombre"]
+        altura = heroe["altura"]
+        peso = heroe["peso"]
+        if genero == dato:
+            diccionarioHeroes = {}
+            nombre = nombreAux
+            diccionarioHeroes["nombre"] = nombre
+            diccionarioHeroes[clave] = genero
+            diccionarioHeroes["altura"] = altura
+            diccionarioHeroes["peso"] = peso
+            listaHeroes.append(diccionarioHeroes)
+            
+    return listaHeroes
+
+#***************************************************************************************************
 def buscar_heroe_mayor_valor(lista:list,clave:str)->str:
     """Busca el nombre que tiene el mayor valor de la clave
 
@@ -99,7 +189,7 @@ def mostrar_nombres(lista:list):
         nombreHeroe = heroe['nombre']
         mostrar(nombreHeroe)
 
-def mostrar(variable)->str:
+def mostrar(variable:any)->str:
     """Muestra por consola un dato con decoración
 
     Arg:
@@ -110,11 +200,12 @@ def mostrar(variable)->str:
 
 ######################################## CALCULOS ############################################
 
-def buscar_maximo(lista:list,clave)->float:
+def buscar_maximo(lista:list,clave:str)->float:
     """Busca el máximo en la lista
 
     Args:
         lista (list): lista a recorrer para buscar el máximo
+        clave (str): clave de donde se quiere sacar el máximo
 
     Returns:
         float: devuelve el valor más grande
@@ -130,12 +221,12 @@ def buscar_maximo(lista:list,clave)->float:
     
     return maximo
 
-def buscar_minimo(lista:list,clave)->float:
+def buscar_minimo(lista:list,clave:str)->float:
     """Busca el mínimo en la lista
 
     Args:
         lista (list): lista a recorrer para buscar el mínimo
-
+        clave (str): clave de donde se quiere sacar el mínimo
     Returns:
         float: devuelve el valor más chico
     """
@@ -150,12 +241,12 @@ def buscar_minimo(lista:list,clave)->float:
     
     return minimo
 
-def calcular_promedio(lista:list,clave)->float:
+def calcular_promedio(lista:list,clave:str)->float:
     """Calcula el promedio
 
     Args:
         lista (list): lista de dónde se sacan los datos a calcular
-        clave (_type_): valor que se quiere calcular
+        clave (str): valor que se quiere calcular
 
     Returns:
         float: Devuelve el resultado del promedio
