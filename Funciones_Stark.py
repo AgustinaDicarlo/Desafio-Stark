@@ -24,10 +24,16 @@ def menu():
     print("3) Mostrar el nombre de los Superhéroes Femeninos")
     print("4) Mostrar nombre y altura de los Superhéroes")
     print("5) Mostrar Superhéroe más alto")
-    print("6) Mostrar Superhéroe más bajo")
-    print("7) Mostrar altura promedio")
-    print("8) Mostrar Superhéroe más pesado y cuál es el menos pesado")
-    print("9) Salir")
+    print("6) Mostrar Superhéroe Masculino más alto")
+    print("7) Mostrar Superhéroe Femenino más alto")
+    print("8) Mostrar Superhéroe más bajo")
+    print("9) Mostrar Superhéroe Masculino más bajo")
+    print("10) Mostrar Superhéroe Femenino más bajo")
+    print("11) Mostrar altura promedio")
+    print("12) Mostrar altura promedio de los Superhérores masculinos")
+    print("13) Mostrar altura promedio de los Superhérores femeninos")
+    print("14) Mostrar Superhéroe más pesado y cuál es el menos pesado")
+    print("0) Salir")
     opcion = input("Elija una opción » ")
     print(" ")
     return opcion
@@ -288,8 +294,6 @@ def calcular_promedio(lista:list,clave:str)->float:
     
     promedio = value / contador
     return promedio
-
-
 
 ########################################### VALIDACIONES ######################################
 
