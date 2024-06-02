@@ -11,11 +11,11 @@ while seguir == True:
             
         case "2":
             print("        || Superhéroes Masculinos ||")
-            mostrar_nombres_genero(lista_personajes,"genero","M")
+            mostrar_nombres_por_valor(lista_personajes,"genero","M")
 
         case "3":
             print("        || Superhéroes Femeninos ||")
-            mostrar_nombres_genero(lista_personajes,"genero","F")
+            mostrar_nombres_por_valor(lista_personajes,"genero","F")
 
         case "4":
             print("   || Superhéroes ||           || Alturas ||\n")

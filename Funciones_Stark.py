@@ -32,9 +32,13 @@ def menu():
     print(" ")
     return opcion
 
+##########################################################################################################
+
+
+
 
 def calcular_promedio_genero(lista:list,genero:str,valor:str,dato:str):
-    """Calcula el promedio del valor del género elegido
+    """Calcula el promedio del valor que se desee del género elegido
 
     Args:
         lista (list): lista de donde se sacan los datos
@@ -45,13 +49,13 @@ def calcular_promedio_genero(lista:list,genero:str,valor:str,dato:str):
     Returns:
         float: Devuelve el promedio
     """
-    listaHeroesGenero = listar_heroe_genero(lista,genero,dato)
+    listaHeroesGenero = listar_heroe_por_valor(lista,genero,dato)
     promedio = calcular_promedio(listaHeroesGenero,valor)
     return promedio
 
 
 def calcular_menor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float:
-    """Calcula el menor valor dependiendo del género
+    """Calcula el menor valor pedido dependiendo del género
 
     Args:
         lista (list): Lista de dónde se sacan los datos
@@ -62,13 +66,13 @@ def calcular_menor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float
     Returns:
         float: Devuelve un minimo
     """
-    listaHeroesGenero = listar_heroe_genero(lista,genero,dato)
+    listaHeroesGenero = listar_heroe_por_valor(lista,genero,dato)
     minimoValor = buscar_minimo(listaHeroesGenero,valor)
     return minimoValor
 
 
 def calcular_mayor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float:
-    """Calcula el maximo valor dependiendo del género
+    """Calcula el maximo valor pedido dependiendo del género
 
     Args:
         lista (list): Lista de dónde se sacan los datos
@@ -79,24 +83,24 @@ def calcular_mayor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float
     Returns:
         float: Devuelve un máximo
     """
-    listaHeroesGenero = listar_heroe_genero(lista,genero,dato)
+    listaHeroesGenero = listar_heroe_por_valor(lista,genero,dato)
     maximoValor = buscar_maximo(listaHeroesGenero,valor)
     return maximoValor
 
 
-def mostrar_nombres_genero(lista:list,clave:str,dato:str):
-    """Muestra los nombres según el género asignado
+def mostrar_nombres_por_valor(lista:list,clave:str,dato:str):
+    """Muestra los nombres según la clave asignada
 
     Args:
         lista (list): Lista de donde se buscan los nombres
         clave (str): Key para acceder al diccionario necesario
         dato (str): M para masculino, F para femenino
     """
-    listaNombres = listar_heroe_genero(lista,clave,dato)
-    mostrar_nombres(listaNombres)
+    listaNombres = listar_heroe_por_valor(lista,clave,dato)
+    mostrar_nombres(listaNombres)   
 
 
-def listar_heroe_genero(lista:list,clave:str,dato:str):
+def listar_heroe_por_valor(lista:list,clave:str,dato:str):
     """Hace una lista con los nombres según el género que se pida
 
     Args:
@@ -110,6 +114,10 @@ def listar_heroe_genero(lista:list,clave:str,dato:str):
         nombreAux = heroe["nombre"]
         altura = heroe["altura"]
         peso = heroe["peso"]
+        colorOjos = heroe["color_ojos"]
+        colorPelo = heroe["color_pelo"]
+        inteligencia = heroe["inteligencia"]
+
         if genero == dato:
             diccionarioHeroes = {}
             nombre = nombreAux
@@ -117,6 +125,9 @@ def listar_heroe_genero(lista:list,clave:str,dato:str):
             diccionarioHeroes[clave] = genero
             diccionarioHeroes["altura"] = altura
             diccionarioHeroes["peso"] = peso
+            diccionarioHeroes["color_ojos"] = colorOjos
+            diccionarioHeroes["color_pelo"] = colorPelo
+            diccionarioHeroes["inteligencia"] = inteligencia
             listaHeroes.append(diccionarioHeroes)
             
     return listaHeroes
@@ -199,6 +210,24 @@ def mostrar(variable:any)->str:
 
 
 ######################################## CALCULOS ############################################
+
+def contador(lista:list,clave:str,valor:str)->int:
+    """Hace un contador según el valor que quieras contar
+
+    Args:
+        lista (list): lista de donde saca los datos
+        clave (str): Clave para acceder al diccionario
+        valor (str): valor que se quiere contar
+
+    Returns:
+        int: Devuelve la cantidad total
+    """
+    contador = 0
+    for heroe in lista:
+        color = heroe[clave]
+        if color == valor:
+            contador += 1
+    return contador
 
 def buscar_maximo(lista:list,clave:str)->float:
     """Busca el máximo en la lista
