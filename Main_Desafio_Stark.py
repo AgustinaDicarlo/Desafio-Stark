@@ -87,8 +87,33 @@ while seguir == True:
             heroeMenorPeso = buscar_heroe_menor_valor(lista_personajes,"peso")
             
             print(f"»{heroeMayorPeso:>9}{mayorPeso:>15}\n» {heroeMenorPeso:>9}{menorPeso:>15}")
-            
-            
+        
+        case "15":
+            print("         || Cantidad de Héroes según el color de ojos ||")
+            colorMarron = contador(lista_personajes,"color_ojos","Brown")
+            colorAzul = contador(lista_personajes,"color_ojos","Blue")
+            colorAmarillo = contador(lista_personajes,"color_ojos","Yellow (without irises)")
+            colorHazel = contador(lista_personajes,"color_ojos","Hazel")
+            colorPlateado = contador(lista_personajes,"color_ojos","Silver")
+            colorRojo = contador(lista_personajes,"color_ojos","Red")
+
+            print(f"Ojos Marrones: {colorMarron}\nOjos Azules: {colorAzul}\nOjos Amarillos: {colorAmarillo}\nOjos Hazel: {colorHazel}\nOjos Plateados: {colorPlateado}\nOjos Rojos: {colorRojo}")
+        
+        case "16":
+            print("     || Cantidad de Héroes según el color de pelo ||")
+
+            colorAmarilloP = contador(lista_personajes,"color_pelo","Yellow")
+            colorMarronP = contador(lista_personajes,"color_pelo","Brown")
+            colorNegro = contador(lista_personajes,"color_pelo","Black")
+            colorAuburn = contador(lista_personajes,"color_pelo","Auburn")
+            colorRO = contador(lista_personajes,"color_pelo","Red / Orange")
+            colorBlanco = contador(lista_personajes,"color_pelo","White")
+            colorNN = contador(lista_personajes,"color_pelo","No Hair")
+            colorRubio = contador(lista_personajes,"color_pelo","Blond")
+            colorVerde = contador(lista_personajes,"color_pelo","Green")
+
+            print(f"Pelo Amarillo: {colorAmarilloP}\nPelo Marrón: {colorMarronP}\nPelo Negro: {colorNegro}\nPelo Auburn: {colorAuburn}\nPelo Rojo/Naranja: {colorRO}\nPelo Blanco: {colorBlanco}\nNo tiene: {colorNN}\nPelo Rubio: {colorRubio}\nPelo Verde: {colorVerde}")
+
         case "0":
             respuesta = input("Desea salir? ").lower()
             if respuesta == "s":
