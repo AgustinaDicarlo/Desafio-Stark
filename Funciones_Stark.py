@@ -65,7 +65,6 @@ def calcular_promedio_genero(lista:list,genero:str,valor:str,dato:str):
     promedio = calcular_promedio(listaHeroesGenero,valor)
     return promedio
 
-
 def calcular_menor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float:
     """Calcula el menor valor pedido dependiendo del género
 
@@ -81,7 +80,6 @@ def calcular_menor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float
     listaHeroesGenero = listar_heroe_por_valor(lista,genero,dato)
     minimoValor = buscar_minimo(listaHeroesGenero,valor)
     return minimoValor
-
 
 def calcular_mayor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float:
     """Calcula el maximo valor pedido dependiendo del género
@@ -99,7 +97,6 @@ def calcular_mayor_valor_genero(lista:list,genero:str,valor:str,dato:str)->float
     maximoValor = buscar_maximo(listaHeroesGenero,valor)
     return maximoValor
 
-
 def mostrar_nombres_por_valor(lista:list,clave:str,dato:str):
     """Muestra los nombres según la clave asignada
 
@@ -110,7 +107,6 @@ def mostrar_nombres_por_valor(lista:list,clave:str,dato:str):
     """
     listaNombres = listar_heroe_por_valor(lista,clave,dato)
     mostrar_nombres(listaNombres)   
-
 
 def listar_heroe_por_valor(lista:list,clave:str,dato:str):
     """Hace una lista con los nombres según el género que se pida
@@ -219,7 +215,6 @@ def mostrar(variable:any)->str:
         variable (any): Dato a ser mostrado
     """
     print(f"» {variable}")
-
 
 ######################################## CALCULOS ############################################
 
